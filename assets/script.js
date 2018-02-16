@@ -5,12 +5,18 @@ $(document).ready(function() {
     method: "GET"
     }).done(function() {
       console.log("success");
+
+      photo = data.result.items.first().media
+
+      $('.main-picture').attr('src', photo)
+
     })
 
-    data.media
+  $('.gallery img').click(function(e){
+    e.preventDefault()
 
-
-
-
+    var photoSelect = $(this).attr('src');
+    $('.main-picture').attr('src', photoSelect);
+  })
 
 });
